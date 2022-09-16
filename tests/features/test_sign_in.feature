@@ -21,8 +21,8 @@ Feature: Test login functionality
       | username             | password | alert                      |
       | testDaniel@yahoo.com | 12r43td  | Authentication failed.     |
       | testDaniel@yahoo.com | 1234     | Invalid password.          |
-      | testDaniel@yahoo.com | \\       | Password is required.      |
+      | testDaniel@yahoo.com | \        | Password is required.      |
       | bestDaniel@yahoo.com | 123456   | Authentication failed.     |
       | testDaniel           | 123456   | Invalid email address.     |
-      | \\                   | 123456   | An email address required. |
-    # Figured out that "\\" prints "\" which is fed as blank space to the site
+      | \                    | 123456   | An email address required. |
+    # Figured out that "\" is fed as blank space to the site

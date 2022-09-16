@@ -52,8 +52,8 @@ def check_user_stays_on_sign_in_page(browser):
 
 @then(parsers.cfparse('"{alert}" error message is displayed'))
 def check_alert_message(browser, alert):
-    sign_in_page = SignInPage(browser)
     string = browser.find_element(By.CSS_SELECTOR, "ol:nth-child(2) > li:nth-child(1)").text
+    print(f"\n---then---Error message is displayed: {string}\n")
     assert alert == browser.find_element(By.CSS_SELECTOR, "ol:nth-child(2) > li:nth-child(1)").text
     print(f"\n---then---Error message is displayed: {string}\n")
 

@@ -14,7 +14,7 @@ Feature: Test login functionality
     When the user types username "<username>"
     And the user types password "<password>"
     And the user clicks the signin button
-    Then the user is on the login page
+    Then the user is on the alert signin page
     And "<alert>" error message is displayed
 
     Examples: Username and passwords and message error

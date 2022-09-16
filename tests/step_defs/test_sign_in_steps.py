@@ -1,7 +1,7 @@
-import pytest
 from pytest_bdd import scenarios, given, when, then, parsers
 
 # scenarios
+from selenium.webdriver.common.by import By
 
 from pages.sign_in_page import SignInPage
 from pages.account_page import AccountPage
@@ -39,29 +39,34 @@ def click_sign_in(browser):
 
 @then('the user is redirected to account page')
 def check_user_redirected_to_account_page(browser):
-    account_page = AccountPage(browser)
-    assert browser.current_url == account_page.URL
+    assert browser.current_url == AccountPage.URL
+    print("\n---then---User is redirected to account page.")
 
 
-@then('the user is on the login page')
+@then('the user is on the alert signin page')
 def check_user_stays_on_sign_in_page(browser):
     sign_in_page = SignInPage(browser)
-    assert browser.current_url == sign_in_page.URL
+    assert browser.current_url == sign_in_page.ALERT_SIGNIN_PAGE
+    print("\n---then---User is on the alert signin page.")
 
 
-@then('"<alert>" error message is displayed')
-def check_alert_message(browser):
+@then(parsers.cfparse('"{alert}" error message is displayed'))
+def check_alert_message(browser, alert):
     sign_in_page = SignInPage(browser)
-    assert "<alert>" == sign_in_page.get_alert_message()
+    string = browser.find_element(By.CSS_SELECTOR, "ol:nth-child(2) > li:nth-child(1)").text
+    assert alert == browser.find_element(By.CSS_SELECTOR, "ol:nth-child(2) > li:nth-child(1)").text
+    print(f"\n---then---Error message is displayed: {string}\n")
 
 
 @then('the welcome message is displayed')
 def check_welcome_text_is_displayed(browser):
     account_page = AccountPage(browser)
     assert "Welcome to your account." in account_page.get_welcome_message()
+    print("\n---then---Welcome message is displayed.")
 
 
 @then('the signout button is displayed')
 def check_sign_out_button_is_displayed(browser):
-    account_page = AccountPage(browser)
-    assert "#SubmitLogin" in browser.current_url
+    # account_page = AccountPage(browser)
+    assert browser.find_element(By.CSS_SELECTOR, ".logout")
+    print("\n---then---Signout button is displayed.")

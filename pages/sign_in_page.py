@@ -6,6 +6,7 @@ from useful.useful_elements import useful, SignIn
 class SignInPage:
     # LOCATORS:
     URL = "http://automationpractice.com/index.php?controller=authentication&back=my-account"
+    ALERT_SIGNIN_PAGE = "http://automationpractice.com/index.php?controller=authentication"
     TITLE_TEXT = (By.CSS_SELECTOR, "h1")
     BUTTON_CREATE_ACCOUNT = (By.CSS_SELECTOR, "#SubmitCreate")
     BUTTON_SIGN_IN = (By.CSS_SELECTOR, "#SubmitLogin")

@@ -35,9 +35,9 @@ def browser():
     #     before tests
     global driver
     options = Options()
-    options.add_argument('--headless')
+    #options.add_argument('--headless')
     driver = selenium.webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=options)
-    driver.implicitly_wait(30)
+    driver.implicitly_wait(20)
     yield driver
     #     quit driver ; after tests
     driver.quit()

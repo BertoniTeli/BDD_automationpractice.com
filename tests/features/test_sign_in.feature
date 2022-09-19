@@ -1,7 +1,7 @@
 Feature: Test login functionality
 
   Scenario: Test login pozitive
-    Given open the login page
+    Given open the authentication page
     When the user types username "testDaniel@yahoo.com"
     And the user types password "123456"
     And the user clicks the signin button
@@ -10,7 +10,7 @@ Feature: Test login functionality
     And the signout button is displayed
 
   Scenario Outline: check error message with wrong credentials
-    Given open the login page
+    Given open the authentication page
     When the user types username "<username>"
     And the user types password "<password>"
     And the user clicks the signin button

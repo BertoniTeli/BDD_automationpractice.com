@@ -13,7 +13,7 @@ class CreateAccountPage:
     def loadPage(self):
         self.browser.get(self.URL)
 
-    def register_button(self):
+    def click_register_button(self):
         self.browser.find_element(By.CSS_SELECTOR, "#submitAccount").click()
 
     def gender_select(self):
@@ -33,3 +33,18 @@ class CreateAccountPage:
 
     def box_password_negative(self):
         self.browser.find_element(By.CSS_SELECTOR, "#passwd").send_keys(useful.Password_Negative)
+
+    def box_address(self):
+        self.browser.find_element(By.CSS_SELECTOR, "#address1").send_keys(useful.Random_Address_Gen)
+
+    def box_city(self):
+        self.browser.find_element(By.CSS_SELECTOR, "#city").send_keys("Tucson")
+
+    def drop_down_list_state(self):
+        self.browser.find_element(By.CSS_SELECTOR, "#id_state > option:nth-child(4)").click()
+
+    def box_zip_code(self):
+        self.browser.find_element(By.CSS_SELECTOR, "#postcode").send_keys(useful.Random_Zip_Gen)
+
+    def box_mobilr_phone(self):
+        self.browser.find_element(By.CSS_SELECTOR, "#phone_mobile").send_keys(useful.Random_Mobile_Phone_Gen)

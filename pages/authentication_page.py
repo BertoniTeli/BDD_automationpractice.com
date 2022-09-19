@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from useful.useful_elements import useful, SignIn
+from useful.useful_elements import useful
 
 
 class SignInPage:
@@ -18,7 +18,10 @@ class SignInPage:
         self.browser.get(self.URL)
 
     def box_email_create_account(self):
-        self.browser.find_element(By.ID, "email_create").send_keys(useful.Random_Email_Gen)
+        self.browser.find_element(By.ID, "email_create").send_keys(useful.mail)
+
+    def click_create_an_account_button(self):
+        self.browser.find_element(By.CSS_SELECTOR, "#SubmitCreate").click()
 
     def box_email_sign_in(self, username):
         self.browser.find_element(By.CSS_SELECTOR, "#email").send_keys(username)

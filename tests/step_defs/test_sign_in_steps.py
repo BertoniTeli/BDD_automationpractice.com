@@ -3,7 +3,7 @@ from pytest_bdd import scenarios, given, when, then, parsers
 # scenarios
 from selenium.webdriver.common.by import By
 
-from pages.sign_in_page import SignInPage
+from pages.authentication_page import SignInPage
 from pages.account_page import AccountPage
 
 scenarios('../features/test_sign_in.feature')
@@ -11,7 +11,7 @@ scenarios('../features/test_sign_in.feature')
 
 # steps - when, then, given
 
-@given('open the login page')
+@given('open the authentication page')
 def load_page(browser):
     sign_in_page = SignInPage(browser)
     sign_in_page.load_page()
@@ -44,7 +44,7 @@ def check_user_redirected_to_account_page(browser):
 
 
 @then('the user is on the alert signin page')
-def check_user_stays_on_sign_in_page(browser):
+def check_user_stays_on_authentication_page(browser):
     sign_in_page = SignInPage(browser)
     assert browser.current_url == sign_in_page.ALERT_SIGNIN_PAGE
     print("\n---then---User is on the alert signin page.")
@@ -53,7 +53,6 @@ def check_user_stays_on_sign_in_page(browser):
 @then(parsers.cfparse('"{alert}" error message is displayed'))
 def check_alert_message(browser, alert):
     string = browser.find_element(By.CSS_SELECTOR, "ol:nth-child(2) > li:nth-child(1)").text
-    print(f"\n---then---Error message is displayed: {string}\n")
     assert alert == browser.find_element(By.CSS_SELECTOR, "ol:nth-child(2) > li:nth-child(1)").text
     print(f"\n---then---Error message is displayed: {string}\n")
 

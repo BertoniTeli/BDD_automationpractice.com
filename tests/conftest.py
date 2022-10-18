@@ -40,5 +40,5 @@ def browser():
     driver.implicitly_wait(20)
     yield driver
     #     quit driver ; after tests
-    driver.quit()
+    #driver.quit()
     return driver

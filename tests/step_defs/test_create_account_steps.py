@@ -1,6 +1,8 @@
 from pytest_bdd import scenarios, given, when, then
 
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 
 from pages.account_page import AccountPage
 from pages.authentication_page import SignInPage
@@ -28,7 +30,8 @@ def click_create_an_account_button(browser):
 
 @then('the user is redirected to create an account page')
 def check_user_redirected_to_create_an_account_page(browser):
-    assert CreateAccountPage.TITLE_TEXT == browser.find_elemant(By.CSS_SELECTOR, ".page-heading").text
+    WebDriverWait(browser, 5).until(ec.url_changes(SignInPage.URL))
+    assert CreateAccountPage.URL == browser.current_url
 
 
 @when('the user types first name')

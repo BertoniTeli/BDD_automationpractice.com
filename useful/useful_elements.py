@@ -4,29 +4,24 @@ import random
 class useful:
     URL = "http://automationpractice.com/index.php"
     number = random.randint(0, 1000)
+    number = str(number)
+
     LastName = "George"
     Password_Pozitive = 12345
     Password_Negative = 1234
     mail = "test261George@yahoo.com"
 
-    def Random_Email_Gen(self):
-        mail = "test261George@yahoo.com"
-        return mail
+    random_mail_gen = "test" + number + "George@yahoo.com"
+    random_firstname_gen = "test"
+    random_phone_gen = "+15204928" + number
+    random_address_gen = "test" + number + "Address, P.O. Box no. 27"
+    random_zip_gen = 50026
 
-    def Random_FirstName_Gen(self):
-        return "test" + str(useful.number)
-
-    def Random_Phone_Number_Gen(self):
-        return "+15204928" + str(useful.number)
-
-    def Random_Address_Gen(self):
-        return "test" + str(useful.number) + "Address, P.O. Box no. 27"
-
-    def Random_Zip_Gen(self):
-        return str(useful.number)
-
-    def Random_Mobile_Phone_Gen(self):
-        return "+152049289" + str(useful.number)
+    def Random_Zip_Gen(self, zip_number=number):
+        if len(zip_number) < 5:
+            zip_number *= 10
+        else:
+            return zip_number
 
 
 class SignIn:

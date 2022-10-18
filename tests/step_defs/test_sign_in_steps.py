@@ -40,7 +40,7 @@ def click_sign_in(browser):
 @then('the user is redirected to account page')
 def check_user_redirected_to_account_page(browser):
     assert browser.current_url == AccountPage.URL
-    print("\n---then---User is redirected to account page.")
+    print("\n---then---User is redirected to main page.")
 
 
 @then('the user is on the alert signin page')

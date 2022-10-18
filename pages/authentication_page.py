@@ -18,7 +18,7 @@ class SignInPage:
         self.browser.get(self.URL)
 
     def box_email_create_account(self):
-        self.browser.find_element(By.ID, "email_create").send_keys(useful.mail)
+        self.browser.find_element(By.ID, "email_create").send_keys(useful.random_mail_gen)
 
     def click_create_an_account_button(self):
         self.browser.find_element(By.CSS_SELECTOR, "#SubmitCreate").click()
